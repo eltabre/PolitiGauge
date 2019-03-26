@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+  <html>
+    <head>
+      <style>
+        #gauge_line {
+          height: 10px;
+          width: 200px;
+          outline: none;
+          position:relative;
+        }
+        #gauge_indicator {
+          position:absolute;
+          top:5%;
+          right:50%;
+          width: 7px;
+          z-index = 1;
+          outline: none;
+        }
+      </style>
+    </head>
+    <body>  <!-- Put the gauge image here -->
+      <script src="popup.js"></script>
+      <img src="images/gauge_line.png" alt="gauge_line.png" id="gauge_line">
+      <img src="images/gauge_indicator.png" alt="gauge_indicator.png" id="gauge_indicator">
+      <b>Center</b> <br>
+      <sub>Reasoning for evaluation</sub>
+    </body>
+  </html>
