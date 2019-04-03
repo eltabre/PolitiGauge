@@ -1,0 +1,5 @@
+NPM installs:
+Browserify - allows "require" statements from client-side (AKA within the browser)
+    - Should allow use to just 'require' everything the user needs
+        1) extract-text
+        2) any javascript ML libraries (tensorJS)
