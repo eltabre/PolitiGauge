@@ -3,10 +3,6 @@
  	"description": "Discover the political leanings of any online article.",
  	"version": "1.0",
  	"author": "Matthew Fishman, Taber Fisher, and Yoseph Minasie",
- 	"background": {
-      		"scripts": ["background.js"],
-      		"persistent": false
- 	},
  	"permissions": ["tabs", "declarativeContent", "storage", "https://ajax.googleapis.com/", "https://*/", "http://*/"],
  	"browser_action": {
         "default_title": "PolitiGauge",

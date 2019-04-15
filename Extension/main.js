@@ -1,65 +1,26 @@
 'use strict';
 
-var currUrl;
-var extractor = require('unfluff');
-var BodyExtractor = require('extract-main-text');
-
-
-
-function getData(url, textPrinter) {
-    $.ajax({
-        url: url,
-        success: textPrinter
-    });
-}​
+var url;
+var response;
+var gauge;
+// var extractor = require('unfluff');
 
 chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
    function(tabs){
-      currUrl = tabs[0].url;
-      console.log("Request for " + currUrl);
+      url = "url=" + tabs[0].url;
+      response = '';
 
-      //Unfluff option...
-      getData(currUrl, function(response) {
-              var json = extractor(response, 'en');
-              console.log("Unfluff Text:");
-              console.dir(json);
-      })
-
-
-      //Extract-main-text option...
-      var bodyExtractor = new BodyExtractor({
-          url: currUrl
-      });
-      bodyExtractor.analyze()
-      .then(function(text) {
-          console.log("Extract-main-text:\n" + bodyExtractor.title);
-          console.log(bodyExtractor.mainText);
+      $.ajax({
+          url: 'http://localhost:5000/getBias',
+          data: url,
+          success: function(response) {
+              console.log(response);
+              gauge = document.getElementById('gauge_indicator');   // Moves gauge indicator
+              gauge.style.right = response+'%';
+          },
+          error: function(error) {
+              console.log(error);
+          }
       });
    }
-
-   // ------------------------------------------------------------------------------
-
-   //Ajax call to server running python
-   // $.ajax({
-   //     url: url
-   // }).done(function(data) {
-   //     //Print result
-   //     console.log(data);
-   // }).fail(function (jqXHR, textStatus) {
-   //       //Error message
-   //       console.log(textStatus);;
-   // });
-
-   // var xmlHttp = new XMLHttpRequest();
-   // xmlHttp.open( "GET", currUrl, true ); // false for synchronous request
-   // xmlHttp.send( null );
-   // html_data = xmlHttp.responseText
-
-   // $.ajax({
-   //     url: currUrl,
-   //     success: function(data) {
-   //         html_data = data;
-   //         console.log(html_data);
-   //     }
-   // });
 );
