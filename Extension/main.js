@@ -16,7 +16,7 @@ chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT}
           success: function(response) {
               console.log(response);
               gauge = document.getElementById('gauge_indicator');   // Moves gauge indicator
-              gauge.style.right = response+'%';
+              gauge.style.right = 70+'%';   //Scale: 3% = full right, 94% = full left
           },
           error: function(error) {
               console.log(error);
