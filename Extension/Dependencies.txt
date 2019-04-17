@@ -1,3 +1,5 @@
 pip install:
  flask
  justext
+
+Start a flask server first by running: py main.py

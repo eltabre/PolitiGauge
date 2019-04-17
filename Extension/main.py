@@ -10,7 +10,8 @@ def hello():
 
 
 def runModel(text):
-    return "30"
+    return text;
+    # return "30"
 
 @app.route("/getBias")
 def getBias():
