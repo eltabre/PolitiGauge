@@ -1,29 +1,85 @@
 ﻿<!DOCTYPE html>
-  <html>
+  <html style="min-height: 70px; min-width: 300px;">
     <head>
       <script src="jquery-3.3.1.js"></script>
       <script src="main.js"></script>
       <style>
         #gauge_line {
-          height: 10px;
-          width: 200px;
-          outline: none;
-          position:relative;
+          height: 16px;
+          width: 300px;
+          position:fixed;
+          top:15px
         }
         #gauge_indicator {
-          position:absolute;
-          top:5%;
-          right:50%;         /* 3% = completely right,  94% = completely left, 48% = center */
-          width: 7px;
+          position:fixed;
+          top:6px;
+          right:153px;         /* 10px = completely right,  296px = completely left, 153px = center */
+          width: 10px;
           z-index = 1;
+        }
+        #bias_category {
+          position:fixed;
+          top:43px;
+          font-size: 20px;
+        }
+        #bias_percentage {
+          position:fixed;
+          top:48px;
+          right:110px;
+          font-size: 14px;
+        }
+        th, td {
+          text-align: left;
+        }
+        .collapsible {
+          position:fixed;
+          background-color: #777;
+          color: white;
+          cursor: pointer;
+          width: 96%;
+          border: none;
+          text-align: left;
           outline: none;
+          font-size: 8px;
+          top:75px;
+        }
+        .active, .collapsible:hover {
+          background-color: #555;
+        }
+        .collapsible:after {
+          content: '\002B';
+          color: white;
+          font-weight: bold;
+          float: right;
+          margin-left: 5px;
+        }
+        .active:after {
+          content: "\2212";
+        }
+        .content {
+          padding: 0 18px;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+          background-color: #f1f1f1;
+          position:fixed;
+          top:86px;
         }
       </style>
     </head>
-    <body>  <!-- Put the gauge image here -->
+    <body style="min-height: 70px; min-width: 300px;">
       <img src="images/gauge_line.png" alt="gauge_line.png" id="gauge_line">
       <img src="images/gauge_indicator.png" alt="gauge_indicator.png" id="gauge_indicator">
-      <b>Center</b> <br>
-      <sub>Reasoning for evaluation</sub>
+      <table>
+          <tr>
+            <th id="bias_category">Center</th>
+            <th id="bias_percentage">(Calculating Bias)</th>
+          </tr>
+      </table>
+      <button class="collapsible">Click here for explanation</button>
+        <div class="content">
+          <p id="return_text">EMPTYTEXT</p>
+        </div>
+        <script src="collapserLogic.js"></script>
     </body>
   </html>
