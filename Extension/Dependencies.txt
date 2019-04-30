@@ -3,3 +3,12 @@ pip install:
  justext
 
 Start a flask server first by running: py main.py
+	Then you can use the extension
+
+Once development is over, we'll need to convert the python code to javascript
+
+
+
+The ideal news source is one that has no inherent bias and conveys information in a straightforward manner. However, there is no such thing as a truly unbiased article. When people read news articles, they are often oblivious to the bias that the author or news organization possesses and imposes on them. Some people unknowingly read news from only one side of the political spectrum, limiting their perspective and subjecting themselves to a filter bubble. PolitiGauge aims to battle filter bubbles and enlighten the public on the bias associated with the news articles they read through a Chrome extension that utilizes machine learning to accurately gauge a given article’s political bias.
+
+Several past studies relating to ours have tried to detect political bias by either taking into account bias from organizations, articles, or political speeches. What makes our approach unique is our consideration of all three components, and implementing them in a widely-accessible Chrome extension. Each component can play a vital role in the creation of our models and increase the probability of an accurate political bias detection. Another factor that makes our approach unique is moving this problem from the realm of discrete predictions to continuous predictions; the vast majority of studies found in our literature review used only three or five classes to give a prediction of bias, and the few that tried to predict on a continuous scale only used one type of data. In short, what makes PolitiGauge unique is our belief that a complex system like political bias cannot be represented by only five labels, or predicted from only one type of data.

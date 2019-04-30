@@ -25,7 +25,7 @@
         #bias_percentage {
           position:fixed;
           top:48px;
-          right:110px;
+          right:90px;
           font-size: 14px;
         }
         th, td {
@@ -48,6 +48,7 @@
         }
         .collapsible:after {
           content: '\002B';
+          max-height: 0;
           color: white;
           font-weight: bold;
           float: right;
@@ -58,8 +59,8 @@
         }
         .content {
           padding: 0 18px;
-          max-height: 0;
-          overflow: hidden;
+          max-height: 10px;
+          overflow: scroll;
           transition: max-height 0.2s ease-out;
           background-color: #f1f1f1;
           position:fixed;
@@ -78,7 +79,7 @@
       </table>
       <button class="collapsible">Click here for explanation</button>
         <div class="content">
-          <p id="return_text">EMPTYTEXT</p>
+          <p id="return_text">News Source Not Available</p>
         </div>
         <script src="collapserLogic.js"></script>
     </body>
