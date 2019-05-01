@@ -10,8 +10,16 @@ def hello():
     return "Welcome to Python Flask!"
 
 
-def runModel(resp):
-    return resp;
+#Taber
+def runModel(vector):
+    return 0
+
+#Yoseph
+def runRNN(text):
+
+    vector = text
+    resp = runModel(vector)
+    return resp
     # return "30"
 
 @app.route("/getBias")
@@ -34,6 +42,10 @@ def getBias():
       if not paragraph.is_boilerplate:
           str += ("\n" + paragraph.text)
 
+    adjustment = runRNN(str)
+    # bias += adjustment
+    # if(bias > 100) bias = 100
+    # else if(bias < -100) bias = -100
 
 
     response = {}
@@ -42,7 +54,7 @@ def getBias():
     response['baseURL'] = baseURL
     json_data = json.dumps(response)
 
-    return runModel(json_data)
+    return json_data
 
     # response = NewsPlease.from_url(url)
     # return response.text
