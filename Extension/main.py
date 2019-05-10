@@ -1,6 +1,7 @@
 from flask import Flask, request
 import requests, json
 import justext
+import RNN
 # from newsplease import NewsPlease   # can use newsplease for author/title data
 
 app = Flask(__name__)
@@ -17,9 +18,8 @@ def runModel(vector):
 #Yoseph
 def runRNN(text):
 
-    vector = text
-    resp = runModel(vector)
-    return resp
+    prediction = RNN.predictModel(text, 50)
+    return prediction
     # return "30"
 
 @app.route("/getBias")
